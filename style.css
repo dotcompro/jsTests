@@ -1,0 +1,459 @@
+html {
+  font-size: 16px;
+}
+
+body {
+  background-color: #2d2d2d;
+  padding: 0;
+  margin: 0;
+  /*overflow-y: scroll;*/
+}
+
+.page-content {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+
+.pages {
+  font-family: "Comfortaa", Times, serif;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  height: 100rem; /* reikes sita istrinti kai JS paskaiciuos ekrano dydi*/
+  position: relative;
+}
+
+h1 {
+  margin: auto;
+  font-weight: 100;
+  font-size: 4rem;
+  margin-top: 4rem;
+  margin-bottom: 1rem;
+}
+
+.spam {
+  position: absolute;
+  margin: 0 0 50px 30px;
+  bottom: 0;
+}
+
+#page-1 {
+  background-color: #5383d1;
+  position: relative;
+}
+
+#page-2 {
+  background-color: #43ad7a;
+}
+
+#page-3 {
+  background-color: #ad7034;
+  position: relative;
+}
+
+#page-4 {
+  background-color: #7234a8;
+}
+
+
+.navContainer {
+  font-family: "Comfortaa", Times, serif;
+  position: fixed;
+  height: 4rem;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(211, 228, 255, .2);
+  transition-duration: .6s;
+  z-index: 1;
+}
+
+.navContainer:hover {
+  background-color: rgba(211, 228, 255, .6);
+}
+
+nav.active {
+/*  position: fixed;
+  top: 0rem;
+  width: 100%;
+  height: 4rem;
+  background-color: #1b2535;
+  z-index: 2;*/
+  position: relative;
+  height: 4rem;
+  /*top: -4rem;*/
+  top: 0rem;
+  background-color: #000;
+  animation-duration: .6s;
+  animation-timing-function: ease-in-out;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-content: center;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+nav ul li {
+  position: relative;
+  top: -4rem;
+  height: 3rem;
+  margin-top: 1rem;
+  width: auto;
+  display: flex;
+}
+
+a {
+  text-decoration: none;
+  font-size: 2rem;
+  margin: auto;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.navContainer li:nth-child(1) a {
+  color: #f93eed ;
+}
+
+.navContainer li:nth-child(2) a {
+  color: #3eb4f9;
+}
+
+.navContainer li:nth-child(3) a {
+  color: #3ef9ca;
+}
+
+.navContainer li:nth-child(4) a {
+  color: #50f93e;
+}
+
+.navContainer li:nth-child(5) a {
+  color: #f9ca3e;
+}
+
+a:hover {
+  color: lightgray;
+  transition-duration: .5s;
+}
+
+.bubble {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0 0 0 20px;
+  /*transform: translate(-50%,-50%);*/
+  /*transition-duration: .3s;*/
+}
+
+
+#jsTests {
+  position: relative;
+  height: 55px;
+  background-color: #55cc7d;
+}
+
+.newNav {
+  width: 80%;
+  min-width: 800px;
+  margin: auto;
+  position: relative;
+}
+
+.newNav ul {
+
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  padding: 0;
+  margin: 10px 0 0 0;
+  /*border: 1px solid #fff;*/
+  height: 37px;
+
+  /*display: inline-flex;
+  position: relative;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 5px;*/
+}
+
+.newNav ul li {
+  list-style: none;
+  text-align: center;
+  width: 25%;
+  /*padding: 0 10px;*/
+  box-sizing: border-box;
+
+ /*display: block;
+ flex: 1;
+ text-align: center;
+ padding: 0 30px;
+ position: relative;
+ left: 0;
+ border: 1px solid #fff;*/
+}
+
+.newNav a {
+  text-decoration: none;
+  /*border: 1px solid green;*/
+}
+
+.line {
+  position: absolute;
+  display: block;
+  border-bottom: 4px solid #cf0174;
+  /*left: 5%;*/
+  /*width: 15%;*/
+}
+
+li.active2 {
+
+}
+
+.randomText, .secondText {
+  width: 90%;
+  height: auto;
+  margin-left: 5%;
+  padding: 20px;
+  text-align: center;
+}
+
+.randomText p {
+  letter-spacing: 1.5px;
+  opacity: 0;
+  display: none;
+}
+
+.rndText {
+
+}
+
+#nano {
+  padding: 5px;
+}
+
+#startAnimation, #startBtn {
+  border: 1px solid #fff;
+  margin-bottom: 10px;
+  width: 110px; 
+  height: 45px;
+  color: #fff;
+  background-color: #5b785b;
+  font-family: "Comfortaa", Times, serif;
+  letter-spacing: 1.7px;
+  font-size: 100%;
+  cursor: pointer;
+}
+
+#nano2 {
+
+}
+
+.demo p {
+  display: inline;
+  opacity: 0;
+}
+
+p {
+  color: #fff;
+  font-size: 20px;
+  letter-spacing: 1.5px;
+  opacity: 1;
+}
+
+.page3container {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.gallery-wrapper {
+  width: 90%;
+  height: 300px;
+  margin: auto;
+}
+
+ul.galleryMainScreen {
+  list-style: none;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0; 
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.galleryMainScreen li {
+  display: block;
+  width: 200px;
+  height: 100px;
+  margin: 1px;
+}
+
+ul.galleryMainScreen li img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* kad object fit veiktu- reikia tureti nustatyta height width, pagal kuri padarytu fit*/
+  cursor: pointer;  
+}
+
+.slideShowWrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  /*display: flex;*/
+  display: none;
+  background-color: rgba(0,0,0,.7);
+}
+
+.slideShowWrapper li img {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+}
+
+.slideshowBackground {
+  width: 80%;
+  height: 80%;
+  background-color: rgba(14,14,14,.8);
+/*  box-shadow: 0px 0px 200px 90px rgba(14, 14, 14, .9);*/
+  display: flex;
+  margin: auto;
+  justify-content: center;
+}
+
+ul.slideshowMainScreen {
+  list-style: none;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+ul.slideshowMainScreen li {
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  margin: 5%;
+  /*left: 300%;*/
+  opacity: 0;
+  object-fit: cover;
+  /*transition-duration: .5s;*/
+}
+
+.slideshowMainScreen li.activeSlideshowImage {
+  opacity: 1;
+}
+
+.arrows {
+  position: absolute;
+  top: 50%;
+  transform: translate(0,-50%);
+  cursor: pointer;
+  font-size: 30px;
+  z-index: 1;
+  padding: 10px;
+}
+
+figure#arrowLeft {
+  left: 20px;
+  transition-duration: .3s;
+}
+
+figure#arrowRight {
+  right: 20px;
+  transition-duration: .3s;
+}
+
+figure#arrowLeft:hover {
+  left: 10px;
+}
+
+figure#arrowRight:hover {
+  right: 10px;
+}
+
+.exit {
+  position: absolute;
+  top: 70px;
+  right: 30px;
+  font-size: 20px;
+  cursor: pointer;
+  transition-duration: .2s;
+  z-index: 1;
+}
+
+.exit:hover {
+  transform: rotate(90deg) scale(1.5);
+}
+
+/* page 4 scrollBox css*/
+
+h4 {
+  text-align: center;
+}
+.boxWrapper {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 70%;
+  margin: auto;
+  height: 70%;
+  background-color: darkorchid;
+  overflow-y: scroll;
+}
+
+.scrollBox {
+  display: block;
+  width: 100%;
+  height: 2000px;
+
+}
+
+section.section {
+  height: 500px;
+  width: 100%;
+}
+
+#section-1 {
+  background-color: violet;
+}
+#section-2 {
+  background-color: thistle;
+}
+#section-3 {
+  background-color: #718da5;
+}
+#section-4 {
+  background-color: #401919;
+}
