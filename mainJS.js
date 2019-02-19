@@ -1,5 +1,4 @@
 $(document).ready(function(){
-	//sitas siek tiek pataisytas
 
 		//  One scroll page
 			var winWidth = $(window).width();
@@ -29,9 +28,10 @@ $(document).ready(function(){
 		 	$('.spam').text(winWidth + ', ' +winHeight);
 		 	
 		 	adjustScreenSize(winWidth,winHeight);
+		 	getactiveMenuLength();
 		 });
 
-		// apie naudota plugina ir jo kitas funkcijas gali pasiskaityti cia https://github.com/jquery/jquery-mousewheel
+		// further readings about used plugin and functions read here https://github.com/jquery/jquery-mousewheel
 		$('html').css('overflow', 'hidden');
 		var viewportHeight = $(window).height();
 
@@ -45,19 +45,16 @@ $(document).ready(function(){
 			//scroll down
 			if (deltaY < 0)
 			{
-				//console.log('deltaY ' + deltaY);
 				// window.scrollBy(0, viewportHeight);
 				scrollDown();
 			}
 			//scroll up
 		    else
 		    {
-		    	//console.log('deltaX '+ deltaX);
 		    		// window.scrollBy(0, -viewportHeight);
 		    	scrollUp();    	
 		    }            
 		});
-
 
 	    $(document).on('keypress', function(){
 			return false;
@@ -138,7 +135,6 @@ $(document).ready(function(){
 	  			setTimeout(function(){
 	  				callMenu();
 	  			}, 50);
-	  			//console.log('praejo 600ms. enter'); 
 	  		});
 	  }).mouseleave(function(){
 			hideMenu();
@@ -162,7 +158,6 @@ $(document).ready(function(){
 		$('#page-1').on('mousemove', function(e){
 			xmouse = e.clientX || e.pageX;
 			ymouse = e.clientY || e.pageY;
-			console.log(xmouse +", " + ymouse);
 		});
 
 		var x = void 0,
@@ -182,7 +177,6 @@ $(document).ready(function(){
 			} else {
 				dx = (xmouse - x) * 0.05;
 				dy = (ymouse - y) * 0.05;
-			console.log(dx);
 
 				if(Math.abs(dx) + Math.abs(dy) < 0.1) {
 					x = xmouse;
@@ -205,27 +199,33 @@ $(document).ready(function(){
 		  hideNavigation();
 		  returnPageToTop();
 
+	
 	//page 2 navigation
 
 	//set undescore line length to active menu length
-
 		
-		var activeWidth = $('li.active2').width();
-		var undescoreLine = $('.line');
-		var navListArray = $('.newNav ul li'); // list array
-			undescoreLine.css({width: activeWidth + 'px'});
-		var prevIndex;
+	var activeWidth = $('li.active2').width();
+	var undescoreLine = $('.line');
+	var navListArray = $('.newNav ul li'); // list array
+	var prevIndex;
+		undescoreLine.css({width: activeWidth + 'px'});
+
+	
+	function getactiveMenuLength() {
+		var len = $('.active2').width();
+		undescoreLine.css('width', len);
+	}
 
 
 	$('.newNav ul li').on('click', function(event) {
 		event.preventDefault();
 
-		var thisIndex = navListArray.index(this); 	// grazina paspausto menu indexa
-			thisIndex++; 							//  del skaiciavimu tikslu				
-		var position = $(this).position(); 			// grazina paspausto menu position px nuo kaires.
+		var thisIndex = navListArray.index(this); 	// returns clicked menu indexa
+			thisIndex++; 							//  counting purposes				
+		var position = $(this).position(); 			// returns clicked menu position px from right.
 		var wd;
 
-		// grazina previous index kuris turi active2 klase
+		// returns previous index which has active2 class
 
 		$.each(navListArray, function(index, value){
 			if($(navListArray[index]).hasClass('active2')) {
@@ -303,10 +303,9 @@ $(document).ready(function(){
   
    function getTiming() {
       timing = Math.ceil(Math.random() * 10) * Math.floor(Math.random() * Math.floor(100));
-      // Math.floor(100) galima keisti 100 verte i 500 ar 1000 keiciant proceso laika
+      // Math.floor(100) is to change in order to change time length of function
       return timing;
     }
-
   
   
   function startAnimation() {
@@ -314,14 +313,12 @@ $(document).ready(function(){
     changeFontSize(getRandomNumber(arrLength));
   }
 
-
   
   function replaceItems(i) {
   	$(txtArr).each(function(i, v) {
     	demo.append('<p>' + v);
     });
-  }
-  
+  }  
 
   function mission(i,j,k, all_p_elem, numbersArray) {
   	$(all_p_elem[numbersArray[i]]).animate({
@@ -362,11 +359,9 @@ $(document).ready(function(){
     	});
   }
 
-
   function changeFontSize(numbersArray) {
 
-    var all_p_elem = $('.demo').children(); //visos raides naujam tekste su opacity: 0;
-    console.log(all_p_elem[45]);
+    var all_p_elem = $('.demo').children(); //new generated text with opacity: 0;
     	var i = 0;
     	var j = Math.floor(all_p_elem.length/3);
     	var k = Math.floor((all_p_elem.length/3)*2);
@@ -385,131 +380,12 @@ $(document).ready(function(){
     	});
          
          
-  } // baigiasi changeFontSize funkcija
+  } // end of changeFontSize function
 
 // --------------------------------------------------------------------------------------
 		
-// fading-in letter text
-
-	// Doviles kodas
-
-  var startButton = $('#startAnimation');
-  var oneText = $('.rndText').text();
-  var arr = oneText.split('');
-  var arrLength = arr.length; // 895
-  var randomNumber;
-  var timing;
-
-  // var newArray = $('#nano').text().split('');
 
 
-  function getRandomNumber_dee() {
-    randomNumber_dee = Math.floor(Math.random() * Math.floor(895));
-    return  randomNumber_dee;
-  }
-
-  function getTiming_dee() {
-    timing_dee = Math.ceil(Math.random() * 10) * Math.floor(Math.random() * Math.floor(500));
-    //console.log(timing);
-    return timing_dee;
-  }
-    var Letters = [];
-    var shuffledLetters = []; 
-
-  function startAnimation_dee() {
-    startButton.fadeOut(getTiming_dee()); // veikia kai as argument perduodi funcija
-    setTimeout(function(){      // nuo cia puikiai veikia iki ---
-      startButton.fadeIn(getTiming_dee());
-    }, getTiming_dee());
-    //-----------------------------------
-    // for each character call function animation, get the index of the char 
-    
-    
-    //var TextHtmlElement = $('#nano');
-    var Text = document.getElementById('nano').innerHTML;
-    console.log(Text);
-    var TextWithNoSpaces = Text.replace(/\s/g, '');
-    var TextWithNoSpacesLength = TextWithNoSpaces.length;
-
-    createArrayFromText(TextWithNoSpaces);
-    shuffle(Letters);
-      
-
-    for (var i = 0; i<shuffledLetters.length; i++)
-    {
-      // sleep(getTiming_dee());
-      paint(shuffledLetters[i]);
-    }
-  }
-
-  function paint(letter)
-  {
-    const element = document.querySelector('#nano');
-    var spanElement = '<p style="color: red; display: inline; opacity: 1;">'+ letter +'</p>';
-
-    //uzduotis: replace pritaikyti NE html elemento raidei, o tik teksto raidei
-    //tips: keisti elementa ne pagal tai kur raide, o pagal position number
-
-    element.append(letter);
-    
-
-    //element.innerHTML = element.innerHTML.replace(letter, spanElement);
-  }
-
-
-  function sleep(milliseconds) 
-  {
-      var start = new Date().getTime();
-        for (var i = 0; i < 1e7; i++) {
-          if ((new Date().getTime() - start) > milliseconds)
-          {
-              break;
-          }
-        }
-  }
-
-
-  function createArrayFromText(TextWithNoSpaces)
-  {
-    for (var i = 0; i < TextWithNoSpaces.length; i++) 
-    {
-      var letter = TextWithNoSpaces.charAt(i);
-      Letters.push(letter);
-    }
-  }
-
-  function shuffle(array)
-  {
-    for (let i = array.length - 1; i > 0; i--) 
-    {
-          const j = Math.floor(Math.random() * (i + 1));
-          [array[i], array[j]] = [array[j], array[i]];
-      }
-      shuffledLetters = array;
-  }
-
-
-  startButton.on('click', startAnimation_dee);
-
-// --------------------------------------------------------------------------------------
-
-								//javascript testas
-
-	var yyy = $('ul.galleryMainScreen li');
-	// console.log('yyy: ',yyy); // NodeList(14)[li,li,li,li,li,li,li,li,li,li];
-		yyy.on('click', function() {  // veikia
-		// console.log('clicked yyy be $ zenklo');
-	});
-	$(yyy).on('click', function() { // veikia
-		// console.log('clicked yyy su $ zenklu');
-	});
-	// $(xxx).click(function() { //is not a function
-	// 	console.log('clicked xxx be $ zenklo');
-	// })
-
-	// $(xxx).click(function() { // neveikia visai nei click nei on('click'). nei klaidos meta nei console.log
-	// 	console.log('clicked xxx su $ zenklu');
-	// })
 // --------------------------------------------------------------------------------------
 
 							// page 3 gallery javascript
@@ -529,17 +405,16 @@ $(document).ready(function(){
 
 	$(galleryList).on('click',function() {
 		clickedImageIndex = $(this).index();
-		console.log(clickedImageIndex);
 		var newUL = document.createElement('ul');
 		newUL.setAttribute('class', 'slideshowMainScreen');
 
 		var newULposition = $('#arrowLeft');
 		newULposition.after(newUL);
 		
+		// 301, 302 are number id's of images
 		var array = [];
 		var i = 301;
 		for(i = 301; i < 315; i++) {
-			// array.push(newLI);
 			array.push(i);
 		}
 
@@ -557,8 +432,7 @@ $(document).ready(function(){
 		var slideshowGalleryList = document.querySelectorAll('.slideshowMainScreen > li');
 			$(slideshowGalleryList[clickedImageIndex]).addClass('activeSlideshowImage');
 	});
-
-
+		//launches gallery lightbox
 	$(galleryList).on('click', function() {
 		slideshowWrapper.fadeIn(600).css('display', 'flex');
 	});
@@ -605,11 +479,11 @@ $(document).ready(function(){
 		if (count < 0) {
 			// xxx = $('li.activeSlideshowImage');
 			slideImageIndex -= 1;
-			slideInLeftImage(slideImageIndex, xxx, thisSlide); // perduoda sumazinta index left next
+			slideInLeftImage(slideImageIndex, xxx, thisSlide); // deliveres reduced index left next
 
 		} else if ( count > 0) {
 			slideImageIndex += 1;
-			slideInRightImage(slideImageIndex, xxx, thisSlide); // perduoda padidinta right next
+			slideInRightImage(slideImageIndex, xxx, thisSlide); // delivers enlarged right next
 		}
 	}
 
@@ -630,19 +504,6 @@ $(document).ready(function(){
 			$(this).addClass('activeSlideshowImage');
 		})
 
-		// $(xxx).animate({
-		// 	opacity: 0
-		// }, 500, 'swing', function() {
-		// 	console.log('baigta');
-		// 	$(this).removeClass('activeSlideshowImage');
-		// 	console.log('slideImageIndex: ', slideImageIndex );
-		// })
-		// $(thisSlide[slideImageIndex]).delay(200).animate({
-		// 	opacity: 1
-		// }, 500,  'swing',function() {
-		// 	$(this).addClass('activeSlideshowImage');
-		// });
-
 	}
 
 	function slideInRightImage(slideImageIndex, xxx, thisSlide) {
@@ -661,17 +522,7 @@ $(document).ready(function(){
 		}, 500, 'swing', function() {
 			$(this).addClass('activeSlideshowImage');
 		})
-		// console.log('opacity right',$(xxx).css('opacity'));
-		// $(xxx).animate({ // front image
-		// 	opacity: 0
-		// }, 500, 'swing', function() {
-		// 	$(this).removeClass('activeSlideshowImage');		
-		// });
-		// $(thisSlide[slideImageIndex]).animate({ // turi buti next image
-		// 	opacity: 1
-		// }, 500, 'swing', function() {
-		// 	$(this).addClass('activeSlideshowImage');
-		// })
+	
 	}
 
 	// --------------------------------------------------------------------------------------

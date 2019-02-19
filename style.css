@@ -6,7 +6,6 @@ body {
   background-color: #2d2d2d;
   padding: 0;
   margin: 0;
-  /*overflow-y: scroll;*/
 }
 
 .page-content {
@@ -23,7 +22,7 @@ body {
   display: flex;
   flex-direction: column;
   color: #fff;
-  height: 100rem; /* reikes sita istrinti kai JS paskaiciuos ekrano dydi*/
+  height: 100rem; 
   position: relative;
 }
 
@@ -77,15 +76,8 @@ h1 {
 }
 
 nav.active {
-/*  position: fixed;
-  top: 0rem;
-  width: 100%;
-  height: 4rem;
-  background-color: #1b2535;
-  z-index: 2;*/
   position: relative;
   height: 4rem;
-  /*top: -4rem;*/
   top: 0rem;
   background-color: #000;
   animation-duration: .6s;
@@ -154,8 +146,6 @@ a:hover {
   top: 0;
   left: 0;
   margin: 0 0 0 20px;
-  /*transform: translate(-50%,-50%);*/
-  /*transition-duration: .3s;*/
 }
 
 
@@ -180,43 +170,28 @@ a:hover {
   height: auto;
   padding: 0;
   margin: 10px 0 0 0;
-  /*border: 1px solid #fff;*/
   height: 37px;
 
-  /*display: inline-flex;
-  position: relative;
-  width: 100%;
-  padding: 0;
-  margin-bottom: 5px;*/
 }
 
 .newNav ul li {
   list-style: none;
   text-align: center;
   width: 25%;
-  /*padding: 0 10px;*/
   box-sizing: border-box;
 
- /*display: block;
- flex: 1;
- text-align: center;
- padding: 0 30px;
- position: relative;
- left: 0;
- border: 1px solid #fff;*/
 }
 
 .newNav a {
   text-decoration: none;
-  /*border: 1px solid green;*/
+
 }
 
 .line {
   position: absolute;
   display: block;
   border-bottom: 4px solid #cf0174;
-  /*left: 5%;*/
-  /*width: 15%;*/
+
 }
 
 li.active2 {
